@@ -15,17 +15,19 @@
   </head>
   <body>
     <h1 class="text-center">Canvas Project Demo</h1>
-    <button class="btn btn-primary" id="drawing-rectangle">Drawing Rectangle </button>
+    <button class="btn btn-primary" id="drawing-rectangle">
+      Drawing Rectangle
+    </button>
     <button class="btn btn-warning" id="drawing-circle">Drawing Circle</button>
     <button class="btn btn-success" id="drawing-line">Drawing Line</button>
-    <button class="btn btn-success" id="text">Text</button> 
+    <button class="btn btn-success" id="insert-text">Text</button>
     <button class="btn btn-success" id="eraser">Eraser</button>
     <button class="btn btn-success" id="color">Color</button>
-    <button class="btn btn-success" id="save">save</button>    
-    <button class="btn btn-success" id="clear">clear</button>    
-    <button class="btn btn-success" id="download">download</button>    
-    <button class="btn btn-success" id="undo">undo</button>   
-    <button class="btn btn-success" id="redo">redo</button> 
+    <button class="btn btn-success" id="save">save</button>
+    <button class="btn btn-success" id="clear">clear</button>
+    <button class="btn btn-success" id="download">download</button>
+    <button class="btn btn-success" id="undo">undo</button>
+    <button class="btn btn-success" id="redo">redo</button>
     <canvas
       class="canvas"
       id="canvas-real"
@@ -52,15 +54,47 @@
     <script src="./drawing-line.js"></script>
     <script src="./drawing-rectangle.js"></script>
     <script src="./drawing-circle.js"></script>
+    <script src="./insert-text.js"></script>
+    <script src="./eraser.js"></script>
+    <script src="./clear.js"></script>
+    <script src="./download.js"></script>
+    <script src="./undo.js"></script>
+    <script src="./redo.js"></script>
     <script type="text/javascript">
       //default drawing line
       currentFunction = new DrawingLine(contextReal, contextDraft);
+      //Rectangle
       $("#drawing-rectangle").click(function () {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
       });
+      //Circle
       $("#drawing-circle").click(function () {
         currentFunction = new DrawingCircle(contextReal, contextDraft);
       });
+      //Text
+      $("#insert-text").click(function () {
+        currentFunction = new InsertText(contextReal, contextDraft);
+      });
+      //Eraser
+      $("#eraser").click(function () {
+        currentFunction = new eraser(contextReal, contextDraft);
+      });
+      //Clear
+      $("#clear").click(function () {
+        currentFunction = new clear(contextReal, contextDraft);
+      }); 
+      //Download
+      $("#download").click(function () {
+        currentFunction = new download(contextReal, contextDraft);
+      }); 
+      //Redo
+      $("#redo").click(function () {
+        currentFunction = new redo(contextReal, contextDraft);
+      }); 
+      //Undo
+      $("#undo").click(function () {
+        currentFunction = new undo(contextReal, contextDraft);
+      });             
     </script>
   </body>
 </html>
